@@ -1,17 +1,19 @@
 import { useState } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Globe } from "lucide-react";
 import logo from "@/assets/logo.png";
-
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Products", href: "#products" },
-  { label: "Warehouse", href: "#warehouse" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { lang, toggleLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t("Главная", "Home"), href: "#home" },
+    { label: t("Продукты", "Products"), href: "#products" },
+    { label: t("Склады", "Warehouse"), href: "#warehouse" },
+    { label: t("О нас", "About"), href: "#about" },
+    { label: t("Контакты", "Contact"), href: "#contact" },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-kremlin-dark/95 backdrop-blur-md border-b border-kremlin-gold/20">
@@ -32,13 +34,22 @@ const Navbar = () => {
           ))}
         </div>
 
-        <a
-          href="tel:+79800892952"
-          className="hidden md:flex items-center gap-2 text-kremlin-gold text-sm font-body"
-        >
-          <Phone className="w-4 h-4" />
-          +7 980 089 29 52
-        </a>
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="tel:+79800892952"
+            className="flex items-center gap-2 text-kremlin-gold text-sm font-body"
+          >
+            <Phone className="w-4 h-4" />
+            +7 980 089 29 52
+          </a>
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-kremlin-gold/40 rounded text-kremlin-gold text-xs font-body uppercase tracking-wider hover:bg-kremlin-gold/10 transition-colors"
+          >
+            <Globe className="w-3.5 h-3.5" />
+            {lang === "ru" ? "EN" : "RU"}
+          </button>
+        </div>
 
         <button
           onClick={() => setOpen(!open)}
@@ -67,6 +78,13 @@ const Navbar = () => {
             <Phone className="w-4 h-4" />
             +7 980 089 29 52
           </a>
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 mt-2 px-3 py-1.5 border border-kremlin-gold/40 rounded text-kremlin-gold text-xs font-body uppercase tracking-wider"
+          >
+            <Globe className="w-3.5 h-3.5" />
+            {lang === "ru" ? "EN" : "RU"}
+          </button>
         </div>
       )}
     </nav>

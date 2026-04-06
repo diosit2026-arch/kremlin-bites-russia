@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 import logo from "@/assets/logo.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div
@@ -26,7 +29,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Authentic Russian Foods & Beverages Since 2001
+          {t("Аутентичные русские продукты и напитки с 2001 года", "Authentic Russian Foods & Beverages Since 2001")}
         </motion.p>
         <motion.div
           className="gold-divider w-48 mx-auto mb-6"
@@ -40,8 +43,10 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          Delivering the finest traditional Russian cuisine and beverages across the nation.
-          25 years of heritage, quality, and passion.
+          {t(
+            "Доставляем лучшую традиционную русскую кухню и напитки по всей стране. 25 лет наследия, качества и страсти.",
+            "Delivering the finest traditional Russian cuisine and beverages across the nation. 25 years of heritage, quality, and passion."
+          )}
         </motion.p>
         <motion.a
           href="#products"
@@ -50,7 +55,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3 }}
         >
-          Explore Products
+          {t("Наши продукты", "Explore Products")}
         </motion.a>
       </div>
     </section>
