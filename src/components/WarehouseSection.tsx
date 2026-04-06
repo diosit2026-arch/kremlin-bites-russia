@@ -4,6 +4,7 @@ import warehouse2 from "@/assets/warehouse2.jpg";
 import machinery1 from "@/assets/machinery1.jpg";
 import machinery2 from "@/assets/machinery2.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { fadeUp, softReveal, staggerParent } from "@/lib/motion";
 
 const WarehouseSection = () => {
   const { t } = useLanguage();
@@ -48,37 +49,42 @@ const WarehouseSection = () => {
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          variants={staggerParent}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-kremlin-gold-light mb-4">
+          <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-kremlin-gold-light mb-4">
             {t("Склады и оборудование", "Warehouses & Machinery")}
-          </h2>
-          <div className="gold-divider w-32 mx-auto mb-4" />
-          <p className="font-body text-kremlin-cream/70 max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.div variants={fadeUp} className="gold-divider w-32 mx-auto mb-4" />
+          <motion.p variants={fadeUp} className="font-body text-kremlin-cream/70 max-w-3xl mx-auto">
             {t(
               "Kremlin Bites развивает современные food warehouse и beverage warehouse мощности в России, включая холодное хранение, переработку, упаковку и дистрибуцию.",
               "Kremlin Bites operates modern food warehouse and beverage warehouse capabilities in Russia, including cold storage, processing, packaging, and distribution."
             )}
-          </p>
-          <p className="font-body text-kremlin-cream/60 max-w-3xl mx-auto mt-4">
+          </motion.p>
+          <motion.p variants={fadeUp} className="font-body text-kremlin-cream/60 max-w-3xl mx-auto mt-4">
             {t(
               "Если клиенты ищут food warehouse company Russia, Russian beverage warehouse, cold storage food distribution или warehouse-based food supplier, наш бренд показывает полный цикл поставок - от производства до доставки.",
               "If customers search for food warehouse company Russia, Russian beverage warehouse, cold storage food distribution, or a warehouse-based food supplier, our brand reflects a full supply chain from production to delivery."
             )}
-          </p>
+          </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          variants={staggerParent}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
           {images.map((item, i) => (
             <motion.div
               key={i}
               className="group relative rounded-lg overflow-hidden"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.6 }}
+              variants={softReveal}
+              whileHover={{ y: -8, transition: { duration: 0.25 } }}
             >
               <img
                 src={item.src}
@@ -95,7 +101,7 @@ const WarehouseSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

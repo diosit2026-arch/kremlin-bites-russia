@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Truck, Users, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { fadeUp, softReveal, staggerParent } from "@/lib/motion";
 
 const AboutSection = () => {
   const { t } = useLanguage();
@@ -9,7 +10,7 @@ const AboutSection = () => {
     { icon: Award, value: "25+", label: t("Лет совершенства", "Years of Excellence") },
     { icon: Truck, value: "200+", label: t("Маршрутов доставки", "Delivery Routes") },
     { icon: Users, value: "10K+", label: t("Довольных клиентов", "Happy Clients") },
-    { icon: ShieldCheck, value: "100%", label: t("Сертификат качества", "Quality Certified") },
+    { icon: ShieldCheck, value: "100%", label: t("Контроль качества", "Quality Certified") },
   ];
 
   return (
@@ -18,44 +19,49 @@ const AboutSection = () => {
         <div className="max-w-4xl mx-auto">
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            variants={staggerParent}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
           >
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-kremlin-deep mb-4">
+            <motion.h2 variants={fadeUp} className="font-heading text-4xl md:text-5xl font-bold text-kremlin-deep mb-4">
               {t("О Kremlin Bites", "About Kremlin Bites")}
-            </h2>
-            <div className="gold-divider w-32 mx-auto mb-8" />
-            <p className="font-body text-muted-foreground leading-relaxed text-lg">
+            </motion.h2>
+            <motion.div variants={fadeUp} className="gold-divider w-32 mx-auto mb-8" />
+            <motion.p variants={fadeUp} className="font-body text-muted-foreground leading-relaxed text-lg">
               {t(
-                <>Основанная в 2001 году, <strong className="text-kremlin-red">Kremlin Bites</strong> находится в авангарде дистрибуции русских продуктов и напитков уже более <strong className="text-kremlin-red">25 лет</strong>. То, что начиналось как небольшой семейный бизнес в Москве, выросло в одно из самых надёжных имён в области аутентичной русской кухни.</>,
-                <>Founded in 2001, <strong className="text-kremlin-red">Kremlin Bites</strong> has been at the forefront of Russian food and beverage distribution for over <strong className="text-kremlin-red">25 years</strong>. What started as a small family business in Moscow has grown into one of Russia's most trusted names in authentic cuisine.</>
+                <>Основанная в 2001 году, <strong className="text-kremlin-red">Kremlin Bites</strong> уже более 25 лет работает в сфере российских продуктов питания, напитков и дистрибуции.</>,
+                <>Founded in 2001, <strong className="text-kremlin-red">Kremlin Bites</strong> has spent more than 25 years building trust in Russian food, beverage, and distribution markets.</>
               )}
-            </p>
-            <p className="font-body text-muted-foreground leading-relaxed text-lg mt-4">
+            </motion.p>
+            <motion.p variants={fadeUp} className="font-body text-muted-foreground leading-relaxed text-lg mt-4">
               {t(
-                "Мы управляем несколькими современными складами, оснащёнными оборудованием для переработки, упаковки и холодного хранения продуктов. Наша приверженность качеству, традициям и инновациям определяет всё, что мы делаем — от закупки лучших ингредиентов до доставки продуктов, которые чтят вековое кулинарное наследие России.",
-                "We operate multiple state-of-the-art warehouses equipped with modern machinery for food processing, packaging, and cold storage. Our commitment to quality, tradition, and innovation drives everything we do — from sourcing the finest ingredients to delivering products that honor centuries of Russian culinary heritage."
+                "Мы развиваем современную складскую инфраструктуру, переработку, упаковку и логистику, чтобы поставлять брендированные продукты высокого качества для розницы, HoReCa и оптовых клиентов.",
+                "We operate modern warehouse infrastructure, processing, packaging, and logistics to supply high-quality branded products to retail, HoReCa, and wholesale partners."
               )}
-            </p>
+            </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, i) => (
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+            variants={staggerParent}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            {stats.map((stat) => (
               <motion.div
-                key={i}
+                key={stat.label}
                 className="text-center p-6 rounded-lg border border-kremlin-gold/20 bg-background"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                variants={softReveal}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
               >
                 <stat.icon className="w-8 h-8 text-kremlin-gold mx-auto mb-3" />
                 <div className="font-heading text-3xl font-bold text-kremlin-deep">{stat.value}</div>
                 <div className="font-body text-xs text-muted-foreground mt-1 uppercase tracking-wider">{stat.label}</div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
