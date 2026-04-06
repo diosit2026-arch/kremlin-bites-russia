@@ -9,10 +9,38 @@ const WarehouseSection = () => {
   const { t } = useLanguage();
 
   const images = [
-    { src: warehouse1, title: t("Основной склад", "Main Storage Facility"), desc: t("Более 50 000 кв. метров организованного хранения продуктов по всей России.", "Over 50,000 sq. meters of organized food storage across multiple locations in Russia.") },
-    { src: warehouse2, title: t("Холодильные склады", "Cold Storage & Logistics"), desc: t("Склады с контролем температуры и современным парком погрузчиков для эффективной дистрибуции.", "Temperature-controlled warehouses with modern forklift fleet for efficient distribution.") },
-    { src: machinery1, title: t("Линия переработки", "Food Processing Line"), desc: t("Современное оборудование для переработки продуктов, обеспечивающее высочайшие стандарты качества.", "State-of-the-art food processing equipment ensuring the highest quality standards.") },
-    { src: machinery2, title: t("Линия розлива", "Beverage Bottling Line"), desc: t("Автоматизированные линии розлива, производящие тысячи единиц в час.", "Automated bottling production lines producing thousands of units per hour.") },
+    {
+      src: warehouse1,
+      title: t("Основной склад", "Main Storage Facility"),
+      desc: t(
+        "Более 50 000 кв. метров организованного хранения продуктов по всей России.",
+        "Over 50,000 sq. meters of organized food storage across multiple locations in Russia."
+      ),
+    },
+    {
+      src: warehouse2,
+      title: t("Холодильные склады", "Cold Storage & Logistics"),
+      desc: t(
+        "Склады с контролем температуры и современным парком погрузчиков для эффективной дистрибуции.",
+        "Temperature-controlled warehouses with a modern forklift fleet for efficient distribution."
+      ),
+    },
+    {
+      src: machinery1,
+      title: t("Линия переработки", "Food Processing Line"),
+      desc: t(
+        "Современное оборудование для переработки продуктов, обеспечивающее высокие стандарты качества.",
+        "State-of-the-art food processing equipment ensuring high quality standards."
+      ),
+    },
+    {
+      src: machinery2,
+      title: t("Линия розлива", "Beverage Bottling Line"),
+      desc: t(
+        "Автоматизированные линии розлива, производящие тысячи единиц в час.",
+        "Automated bottling production lines producing thousands of units per hour."
+      ),
+    },
   ];
 
   return (
@@ -28,8 +56,17 @@ const WarehouseSection = () => {
             {t("Склады и оборудование", "Warehouses & Machinery")}
           </h2>
           <div className="gold-divider w-32 mx-auto mb-4" />
-          <p className="font-body text-kremlin-cream/70 max-w-2xl mx-auto">
-            {t("Наша обширная сеть складов и современное оборудование обеспечивают свежесть от производства до вашего стола.", "Our extensive network of warehouses and modern machinery ensures freshness from production to your table.")}
+          <p className="font-body text-kremlin-cream/70 max-w-3xl mx-auto">
+            {t(
+              "Kremlin Bites развивает современные food warehouse и beverage warehouse мощности в России, включая холодное хранение, переработку, упаковку и дистрибуцию.",
+              "Kremlin Bites operates modern food warehouse and beverage warehouse capabilities in Russia, including cold storage, processing, packaging, and distribution."
+            )}
+          </p>
+          <p className="font-body text-kremlin-cream/60 max-w-3xl mx-auto mt-4">
+            {t(
+              "Если клиенты ищут food warehouse company Russia, Russian beverage warehouse, cold storage food distribution или warehouse-based food supplier, наш бренд показывает полный цикл поставок - от производства до доставки.",
+              "If customers search for food warehouse company Russia, Russian beverage warehouse, cold storage food distribution, or a warehouse-based food supplier, our brand reflects a full supply chain from production to delivery."
+            )}
           </p>
         </motion.div>
 

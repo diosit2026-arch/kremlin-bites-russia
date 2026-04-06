@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, MessageCircle, Mail, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -56,15 +56,21 @@ const Footer = () => {
                 </p>
               </div>
               <div className="flex items-center gap-3">
+                <MessageCircle className="w-5 h-5 text-kremlin-gold shrink-0" />
+                <a href="https://wa.me/79154747112" className="font-body text-sm text-kremlin-cream/60 hover:text-kremlin-gold transition-colors">
+                  WhatsApp: +7 915 474-71-12
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-kremlin-gold shrink-0" />
                 <a href="tel:+79800892952" className="font-body text-sm text-kremlin-cream/60 hover:text-kremlin-gold transition-colors">
-                  +7 980 089 29 52
+                  Call: +7 980 089 29 52
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-kremlin-gold shrink-0" />
-                <a href="mailto:info@kremlinbites.ru" className="font-body text-sm text-kremlin-cream/60 hover:text-kremlin-gold transition-colors">
-                  info@kremlinbites.ru
+                <a href="mailto:info@kremlinbites.com" className="font-body text-sm text-kremlin-cream/60 hover:text-kremlin-gold transition-colors">
+                  info@kremlinbites.com
                 </a>
               </div>
             </div>
@@ -73,7 +79,7 @@ const Footer = () => {
 
         <div className="gold-divider mb-6" />
         <p className="font-body text-xs text-kremlin-cream/40 text-center">
-          © 2026 Kremlin Bites. {t("Все права защищены.", "All rights reserved.")}
+          © 2002 Kremlin Bites. {t("Все права защищены.", "All rights reserved.")}
         </p>
       </div>
     </footer>
