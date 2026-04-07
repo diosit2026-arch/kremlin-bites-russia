@@ -51,13 +51,23 @@ const Navbar = () => {
           </button>
         </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-kremlin-gold p-2 -mr-2"
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 px-3 py-1.5 border border-kremlin-gold/40 rounded text-kremlin-gold text-xs font-body uppercase tracking-wider hover:bg-kremlin-gold/10 transition-colors"
+          >
+            <Globe className="w-3.5 h-3.5" />
+            {lang === "ru" ? "EN" : "RU"}
+          </button>
+
+          <button
+            onClick={() => setOpen(!open)}
+            className="text-kremlin-gold p-2 -mr-2"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -79,13 +89,6 @@ const Navbar = () => {
             <Phone className="w-4 h-4" />
             +7 980 089 29 52
           </a>
-          <button
-            onClick={toggleLang}
-            className="flex items-center gap-1.5 mt-2 px-3 py-1.5 border border-kremlin-gold/40 rounded text-kremlin-gold text-xs font-body uppercase tracking-wider"
-          >
-            <Globe className="w-3.5 h-3.5" />
-            {lang === "ru" ? "EN" : "RU"}
-          </button>
         </div>
       )}
     </nav>
