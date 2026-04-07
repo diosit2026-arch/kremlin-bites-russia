@@ -36,11 +36,11 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="tel:+79800892952"
+            href="tel:+79154747112"
             className="flex items-center gap-2 text-kremlin-gold text-sm font-body"
           >
             <Phone className="w-4 h-4" />
-            +7 980 089 29 52
+            +7 915 474-71-12
           </a>
           <button
             onClick={toggleLang}

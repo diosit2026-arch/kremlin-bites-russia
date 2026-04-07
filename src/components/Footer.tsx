@@ -55,16 +55,11 @@ const Footer = () => {
                   {t("Москва, Россия, 119361", "Moscow, Russia, 119361")}
                 </p>
               </div>
-              <div className="flex items-center gap-3">
-                <MessageCircle className="w-5 h-5 text-kremlin-gold shrink-0" />
-                <a href="https://wa.me/79154747112" className="font-body text-sm text-kremlin-cream/60 hover:text-kremlin-gold transition-colors">
-                  WhatsApp: +7 915 474-71-12
-                </a>
-              </div>
+            
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-kremlin-gold shrink-0" />
-                <a href="tel:+79800892952" className="font-body text-sm text-kremlin-cream/60 hover:text-kremlin-gold transition-colors">
-                  Call: +7 980 089 29 52
+                <a href="tel:+79154747112" className="font-body text-sm text-kremlin-cream/60 hover:text-kremlin-gold transition-colors">
+                  Call: +7 915 474-71-12
                 </a>
               </div>
               <div className="flex items-center gap-3">
